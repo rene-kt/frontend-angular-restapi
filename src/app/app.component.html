@@ -3,18 +3,36 @@
         <span>My Application</span>
     </mat-toolbar>
 </p>
-
-<mat-selection-list #shoes [multiple]="false">
-    <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-        {{shoe}} - R$1500 - 8
-    </mat-list-option>
-
-</mat-selection-list>
-
-<p>
-    Option selected: {{shoes.selectedOptions.selected[0]?.value}}
-</p>
-
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
 <button mat-fab color="basic" aria-label="Example icon button with a delete icon">
   <i class="far fa-edit"></i>
 </button>
