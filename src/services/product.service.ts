@@ -15,9 +15,10 @@ export class ProductService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Context-Type': 'application/json',
+      'Content-Type': 'application/json',
     }),
   };
+
 
   constructor(private httpClient: HttpClient) {}
 
@@ -30,7 +31,7 @@ export class ProductService {
 
   saveProduct(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(
-      this.apiUrl,
+      this.apiUrl + '/product',
       JSON.stringify(product),
       this.httpOptions
     );
