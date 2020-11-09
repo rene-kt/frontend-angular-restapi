@@ -21,7 +21,7 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getProductsById(id: string): Observable<Product> {
+  getProductsById(id: number): Observable<Product> {
     return this.httpClient.get<Product>(this.apiUrl + '/' + id);
   }
   getProducts(): Observable<Product[]> {

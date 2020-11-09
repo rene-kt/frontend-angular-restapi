@@ -10,15 +10,21 @@ import { Product } from 'src/models/product.model';
 export class AppComponent implements OnInit {
   product = {} as Product;
   products: Product[];
+  selectedProduct: Product;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getProducts();
   }
 
   constructor(private productService: ProductService) {}
-  getProducts() {
+  getProducts(): void {
     this.productService.getProducts().subscribe((products: Product[]) => {
       this.products = products;
     });
   }
+  //Getting item from table
+setClickedRow(product: Product): void{
+   this.selectedProduct = product;
+   console.log(product);
+}
 }

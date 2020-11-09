@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products" (click)="setClickedRow(product)">
             <th scope="row">{{product.id}}</th>
             <td>{{ product.name }}</td>
             <td>{{ product.value }}</td>
@@ -22,6 +22,8 @@
 
     </tbody>
 </table>
+
+<p>{{selectedProduct.name}}</p>
 <button mat-fab color="basic" aria-label="Example icon button with a delete icon">
   <i class="far fa-edit"></i>
 </button>
