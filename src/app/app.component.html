@@ -29,15 +29,34 @@
     </tbody>
 </table>
 
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add product
+            </mat-panel-title>
+            <mat-panel-description>
+                Type product's data
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-<button mat-fab color="basic" aria-label="Example icon button with a delete icon ">
-  <i class="far fa-edit"></i>
-</button>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput>
+        </mat-form-field>
 
-<button (click)="deleteItemById()" mat-fab color="warn" aria-label="Example icon button with a delete icon ">
-  <i class="far fa-trash-alt"></i>
-</button>
+        <mat-form-field>
+            <mat-label>Prize</mat-label>
+            <span matPrefix>R$ &nbsp;</span>
+            <input matInput type="number" min="1">
+        </mat-form-field>
 
-<button mat-fab color="primary">
-  <i class="fas fa-plus"></i>
-</button>
+        <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" min="1">
+        </mat-form-field>
+
+        <button>Save</button>
+
+    </mat-expansion-panel>
+</mat-accordion>

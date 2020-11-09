@@ -4,6 +4,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+
+
+
 
 
 
@@ -22,6 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
