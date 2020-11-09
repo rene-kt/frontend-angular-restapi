@@ -10,6 +10,7 @@
             <th scope="col">Name</th>
             <th scope="col">Prize</th>
             <th scope="col">Quantity</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -18,20 +19,25 @@
             <td>{{ product.name }}</td>
             <td>{{ product.value }}</td>
             <td>{{ product.quantity }}</td>
+            <td>
+                <i class="far fa-edit"></i>
+                <i (click)="deleteItemById()" class="far fa-trash-alt"></i>
+            </td>
+
         </tr>
 
     </tbody>
 </table>
 
-<p>{{selectedProduct.name}}</p>
-<button mat-fab color="basic" aria-label="Example icon button with a delete icon">
+
+<button mat-fab color="basic" aria-label="Example icon button with a delete icon ">
   <i class="far fa-edit"></i>
 </button>
 
-<button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+<button (click)="deleteItemById()" mat-fab color="warn" aria-label="Example icon button with a delete icon ">
   <i class="far fa-trash-alt"></i>
 </button>
 
-<button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+<button mat-fab color="primary">
   <i class="fas fa-plus"></i>
 </button>

@@ -16,15 +16,20 @@ export class AppComponent implements OnInit {
     this.getProducts();
   }
 
+   
   constructor(private productService: ProductService) {}
   getProducts(): void {
     this.productService.getProducts().subscribe((products: Product[]) => {
       this.products = products;
     });
   }
-  //Getting item from table
+  // Getting item from table
 setClickedRow(product: Product): void{
    this.selectedProduct = product;
-   console.log(product);
+
+}
+
+deleteItemById(): void{
+  this.productService.deleteProductById(this.selectedProduct.id);
 }
 }

@@ -22,7 +22,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
   getProductsById(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(this.apiUrl + '/' + id);
+    return this.httpClient.get<Product>(this.apiUrl + '/product/' + id);
   }
   getProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.apiUrl + '/products');
@@ -44,9 +44,9 @@ export class ProductService {
     );
   }
 
-  deleteProductById(id: string): any {
+  deleteProductById(id: number): any {
     return this.httpClient.delete<Product>(
-      this.apiUrl + '/' + id,
+      this.apiUrl + '/product/' + id,
       this.httpOptions
     );
   }
