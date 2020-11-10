@@ -65,6 +65,11 @@ export class AppComponent implements OnInit {
   }
 
   deleteItemById(): void {
-    this.productService.deleteProductById(this.selectedProduct.id);
+    this.productService.deleteProductById(this.selectedProduct.id).subscribe(() => {
+
+      this.getProducts();
+    }
+    
+    );
   }
 }

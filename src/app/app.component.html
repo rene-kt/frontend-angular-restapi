@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products" (click)="setClickedRow(product)">
+        <tr *ngFor="let product of products" (mouseenter)="setClickedRow(product)">
             <th scope="row">{{product.id}}</th>
             <td>{{ product.name }}</td>
             <td>{{ product.value }}</td>
