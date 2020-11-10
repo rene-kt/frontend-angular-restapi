@@ -1,8 +1,13 @@
 import { ProductService } from './../services/product.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/models/product.model';
 import { MatAccordion } from '@angular/material/expansion';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -19,39 +24,29 @@ export class AppComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   product = {} as Product;
   products: Product[];
-  selectedProduct: Product;
-
+  editMode: boolean;
+  selectedProduct = {} as Product;
 
   ngOnInit(): void {
     this.getProducts();
+    this.editMode = false;
   }
 
   constructor(
-    private productService: ProductService, private formBuilder: FormBuilder
+    private productService: ProductService,
+    private formBuilder: FormBuilder
   ) {
-
-    this.productForm = this.formBuilder.group(
-      {
-        name: ['', [Validators.required]],
-        value: ['', [Validators.required]],
-        quantity: ['', [Validators.required]],
-      }
-    );
-
-
+    this.productForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
+    });
   }
   getProducts(): void {
     this.productService.getProducts().subscribe((products: Product[]) => {
       this.products = products;
     });
   }
-
-  // Getting item from table
-  setClickedRow(product: Product): void {
-    this.selectedProduct = product;
-  }
-
-  
 
   insertProduct(): void {
     this.product.name = this.productForm.value.name;
@@ -60,16 +55,36 @@ export class AppComponent implements OnInit {
 
     this.productService.saveProduct(this.product).subscribe(() => {
       this.getProducts();
-    }
-    );
+      this.productForm.reset();
+
+    });
   }
 
-  deleteItemById(): void {
-    this.productService.deleteProductById(this.selectedProduct.id).subscribe(() => {
+  deleteItemById(product: Product): void {
+    this.selectedProduct = product;
+    this.productService
+      .deleteProductById(this.selectedProduct.id)
+      .subscribe(() => {
+        this.getProducts();
+        this.productForm.reset();
+      });
+  }
 
-      this.getProducts();
-    }
-    
-    );
+  changeEditMode(condition: boolean, product: Product): void {
+    this.editMode = condition;
+    this.selectedProduct = product;
+
+  }
+  updateItem(): void {
+
+    this.selectedProduct.id = this.selectedProduct.id;
+    this.selectedProduct.name = this.productForm.value.name;
+    this.selectedProduct.value = this.productForm.value.value;
+    this.selectedProduct.quantity = this.productForm.value.quantity;
+
+    this.productService.updateProduct(this.selectedProduct).subscribe(() => {
+      this.editMode = false;
+      this.productForm.reset();
+    });
   }
 }

@@ -39,7 +39,7 @@ export class ProductService {
 
   updateProduct(product: Product): Observable<Product> {
     return this.httpClient.put<Product>(
-      this.apiUrl,
+      this.apiUrl + '/product',
       JSON.stringify(product),
       this.httpOptions
     );

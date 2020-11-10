@@ -14,14 +14,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products" (mouseenter)="setClickedRow(product)">
+        <tr *ngFor="let product of products">
             <th scope="row">{{product.id}}</th>
             <td>{{ product.name }}</td>
             <td>{{ product.value }}</td>
             <td>{{ product.quantity }}</td>
             <td>
-                <i class="far fa-edit"></i>
-                <i (click)="deleteItemById()" class="far fa-trash-alt"></i>
+                <i (click)="changeEditMode(true, product)" class="far fa-edit"></i>
+                <i (click)="deleteItemById(product)" class="far fa-trash-alt"></i>
             </td>
 
         </tr>
@@ -40,24 +40,28 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <form [formGroup]="productForm" (ngSubmit)="insertProduct()">
+        <form [formGroup]="productForm">
             <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
+                <input matInput formControlName="name" [value]="selectedProduct.name">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Prize</mat-label>
                 <span matPrefix>R$ &nbsp;</span>
-                <input matInput type="number" min="1" formControlName="value">
+                <input matInput type="number" min="1" formControlName="value" [value]="selectedProduct.value">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Quantity</mat-label>
-                <input matInput type="number" min="1" formControlName="quantity">
+                <input matInput type="number" min="1" formControlName="quantity" [value]="selectedProduct.quantity">
             </mat-form-field>
 
-            <button type="submit">Save</button>
+
+            <p *ngIf="editMode">You're on the edit mode. Press the button to exit</p>
+            <button (click)="changeEditMode(false, null)" *ngIf="editMode">Cancel</button>
+            <button type="button" (click)="updateItem()" *ngIf="editMode">Update</button>
+            <button (click)="insertProduct()" *ngIf="!editMode" type="button">Save</button>
 
         </form>
 
