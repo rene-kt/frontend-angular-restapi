@@ -1,27 +1,57 @@
-# CrudApi
+# Angular Rest API 🅰️ 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-## Development server
+This project was made with Angular 8, it's a  CRUD frontend,  the application is connected with [spring-rest-api-angular-backend](https://github.com/reness0/spring-rest-api-angular-backend) through API. However, you can create your own API and use this repository as a boilerplate to build your own application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Demo video :camera:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Untitled-Project-‐-Made-with-Clipchamp-_1_](https://user-images.githubusercontent.com/49681380/98816397-60a92180-2407-11eb-8895-b06abf1231b7.gif)
 
-## Build
+## Technologies :computer:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Angular 8 
+- TypeScript
+- Bootstrap 
+- HTML/CSS
+- Rest API
+ 
 
-## Running unit tests
+## How to use :wave:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To clone and run this application by yourself, make sure you have NodeJS, Git and a terminal (doesn't matter which), just to run the commands. After that, do the following instructions: 
 
-## Running end-to-end tests
+**_First of all, make sure  you have downloaded the [backend](https://github.com/reness0/spring-rest-api-angular-backend). The instruction of how to do that is on it's readme._**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+# Clone this repository
+$ git clone https://github.com/reness0/angular-to-do
 
-## Further help
+# Go into the repository
+$ cd angular-to-do
+```
+# Install dependencies
+```
+$ npm i
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Run the app
+```
+$ ng serve -o
+```
+
+Now, all you need to do, is access on your browser: http://localhost:4200
+
+
+## How to contribute :question:
+
+1. Make a fork;
+2. Create a branch with your feature: `git checkout -b my-feature`;
+3. Commit changes: `git commit -m 'Updating the css'`;
+4. Push the changes: `git push origin my-feature`.
+
+
+
+
+
+
