@@ -24,3 +24,35 @@ body {
 .example-headers-align .mat-form-field+.mat-form-field {
     margin-left: 8px;
 }
+
+td {
+    font-size: 2rem;
+}
+
+.icons-div {
+    color: #fff;
+}
+
+.icons-div i {
+    padding-right: 10px;
+}
+
+.icon-update:hover {
+    color: darkgoldenrod;
+}
+
+.icon-delete:hover {
+    color: lightcoral;
+}
+
+.buttons {
+    margin-right: 20px;
+}
+
+.buttons button {
+    margin-right: 20px;
+}
+
+.edit-text {
+    font-style: italic;
+}

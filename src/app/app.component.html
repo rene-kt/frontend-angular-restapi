@@ -1,6 +1,6 @@
 <p>
-    <mat-toolbar>
-        <span>My Application</span>
+    <mat-toolbar class="navbar">
+        <h2>CRUD W/ SPRING BOOT AND ANGULAR 8</h2>
     </mat-toolbar>
 </p>
 <table class="table table-hover table-dark">
@@ -20,9 +20,12 @@
             <td>{{ product.value }}</td>
             <td>{{ product.quantity }}</td>
             <td>
-                <i (click)="changeEditMode(true, product)" class="far fa-edit"></i>
-                <i (click)="deleteItemById(product)" class="far fa-trash-alt"></i>
+                <div class="icons-div">
+                    <i (click)="changeEditMode(true, product)" class="far fa-edit icon-update"></i>
+                    <i (click)="deleteItemById(product)" class="far fa-trash-alt icon-delete"></i>
+                </div>
             </td>
+
 
         </tr>
 
@@ -57,12 +60,15 @@
                 <input matInput type="number" min="1" formControlName="quantity" [value]="selectedProduct.quantity">
             </mat-form-field>
 
+            <p class="edit-text" *ngIf="editMode">You're on the edit mode.</p>
+            <div class="buttons">
 
-            <p *ngIf="editMode">You're on the edit mode. Press the button to exit</p>
-            <button (click)="changeEditMode(false, {})" *ngIf="editMode" type="button">Cancel</button>
-            <button type="button" (click)="updateItem()" *ngIf="editMode">Update</button>
-            <button *ngIf="!editMode" type="button" (click)="insertProduct()" [disabled]="!productForm.valid">Save</button>
-            <button *ngIf="!editMode" type="reset">Clear</button>
+                <button (click)="changeEditMode(false, {})" *ngIf="editMode" type="button" class="btn btn-outline-danger">Cancel</button>
+                <button type="button" (click)="updateItem()" *ngIf="editMode" class="btn btn-primary">Update</button>
+
+                <button *ngIf="!editMode" type="reset" class="btn btn-outline-primary">Clear</button>
+                <button *ngIf="!editMode" type="button" (click)="insertProduct()" [disabled]="!productForm.valid" class="btn btn-success ">Save</button>
+            </div>
 
         </form>
 

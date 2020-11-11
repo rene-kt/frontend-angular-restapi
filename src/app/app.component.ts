@@ -62,18 +62,23 @@ export class AppComponent implements OnInit {
   updateItem(): void {
     this.selectedProduct.id = this.selectedProduct.id;
 
-    if (this.productForm.value.name !== '') {
+    if (this.productForm.value.name === null) {
+      this.selectedProduct.name = this.selectedProduct.name;
+    } else {
       this.selectedProduct.name = this.productForm.value.name;
     }
 
-    if (this.productForm.value.value !== '') {
+    if (this.productForm.value.value === null) {
+      this.selectedProduct.value = this.selectedProduct.value;
+    } else {
       this.selectedProduct.value = this.productForm.value.value;
     }
 
-    if (this.productForm.value.quantity !== '') {
+    if (this.productForm.value.quantity === null) {
+      this.selectedProduct.quantity = this.selectedProduct.quantity;
+    } else {
       this.selectedProduct.quantity = this.productForm.value.quantity;
     }
-
     this.productService.updateProduct(this.selectedProduct).subscribe(() => {
       this.editMode = false;
       this.productForm.reset();
@@ -94,7 +99,7 @@ export class AppComponent implements OnInit {
     this.editMode = condition;
     this.selectedProduct = product;
 
-    if(condition === false){
+    if (condition === false) {
       this.selectedProduct.name = '';
     }
   }
