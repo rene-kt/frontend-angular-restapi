@@ -59,9 +59,10 @@
 
 
             <p *ngIf="editMode">You're on the edit mode. Press the button to exit</p>
-            <button (click)="changeEditMode(false, null)" *ngIf="editMode">Cancel</button>
+            <button (click)="changeEditMode(false, {})" *ngIf="editMode" type="button">Cancel</button>
             <button type="button" (click)="updateItem()" *ngIf="editMode">Update</button>
-            <button (click)="insertProduct()" *ngIf="!editMode" type="button">Save</button>
+            <button *ngIf="!editMode" type="button" (click)="insertProduct()" [disabled]="!productForm.valid">Save</button>
+            <button *ngIf="!editMode" type="reset">Clear</button>
 
         </form>
 
