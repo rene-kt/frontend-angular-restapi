@@ -21,7 +21,7 @@ This project was made with Angular 8, it's a  CRUD frontend,  the application is
 
 To clone and run this application by yourself, make sure you have NodeJS, Git and a terminal (doesn't matter which), just to run the commands. After that, do the following instructions: 
 
-**_First of all, make sure  you have downloaded the [backend](https://github.com/reness0/spring-rest-api-angular-backend). The instruction of how to do that is on it's readme._**
+**_First of all, make sure  you have downloaded the [backend](https://github.com/reness0/spring-rest-api-angular-backend) and have ran the server. The instruction of how to do that is on it's readme._**
 
 ```bash
 # Clone this repository
