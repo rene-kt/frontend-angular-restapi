@@ -28,7 +28,7 @@ To clone and run this application by yourself, make sure you have NodeJS, Git an
 $ git clone https://github.com/reness0/angular-to-do
 
 # Go into the repository
-$ cd angular-to-do
+$ cd frontend-angular-restapi
 ```
 # Install dependencies
 ```
